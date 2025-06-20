@@ -1,9 +1,0 @@
-#include "AP_main.h"
-
-int ap_run(){
-
-}
-
-void ap_init(){
-
-}
