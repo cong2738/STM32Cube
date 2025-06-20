@@ -1,0 +1,37 @@
+/*
+ * Seven_Segment.h
+ *
+ *  Created on: Jun 19, 2025
+ *      Author: kccistc
+ */
+
+#ifndef DRIVER_SEVEN_SEGMENT_SEVEN_SEGMENT_H_
+#define DRIVER_SEVEN_SEGMENT_SEVEN_SEGMENT_H_
+
+#include "GPIO.h"
+#include "SystemClock.h"
+
+typedef struct {
+	GPIO_TypeDef* GPIO;
+	uint32_t pinNum;
+}SEG_GPO;
+
+SEG_GPO SEG[12] = {
+		{GPIOC,8},
+		{GPIOC,6},
+		{GPIOC,5},
+		{GPIOA,12},
+		{GPIOA,11},
+		{GPIOB,12},
+		{GPIOB,2},
+		{GPIOB,1},
+		{GPIOB,15},
+		{GPIOB,14},
+		{GPIOB,13},
+		{GPIOC,4}
+};
+
+void SEG_Init();
+void SEG_SHOW(int data);
+
+#endif /* DRIVER_SEVEN_SEGMENT_SEVEN_SEGMENT_H_ */

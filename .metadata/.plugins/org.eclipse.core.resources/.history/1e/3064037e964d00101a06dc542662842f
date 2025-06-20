@@ -1,0 +1,51 @@
+/*
+ * TIM.c
+ *
+ *  Created on: Jun 20, 2025
+ *      Author: kccistc
+ */
+
+
+#include "TIM.h"
+
+void TIM_Init(TIM_TypeDef* TIMx, uint32_t psc, uint32_t arr){
+	TIM_WritePSC(TIMx, psc);
+	TIM_WriteARR(TIMx,arr)
+}
+
+void TIM_Start(TIM_TypeDef* TIMx){
+	TIMx->CR1 |= (1<<0);
+}
+
+void TIM_Stop(TIM_TypeDef* TIMx){
+	TIMx->CR1 &= ~(1<<0);
+}
+
+void TIM_IEnable(TIM_TypeDef* TIMx){
+	TIMx->DIER |= (1<<0);
+}
+
+void TIM_IDisable(TIM_TypeDef* TIMx){
+	TIMx->DIER &= ~(1<<0);
+}
+
+uint23_t TIM_GetCnt(TIM_TypeDef* TIMx){
+	return TIMx->CNT;
+}
+void TIM_WriteCnt(TIM_TypeDef* TIMx, int cnt){
+	TIMx->CNT = cnt;
+}
+
+uint23_t TIM_GetPSC(TIM_TypeDef* TIMx){
+	return TIMx->PSC;
+}
+void TIM_WritePSC(TIM_TypeDef* TIMx, int psc){
+	TIMx->PSC = psc;
+}
+
+uint23_t TIM_GetARR(TIM_TypeDef* TIMx){
+	return TIMx->ARR;
+}
+void TIM_WriteARR(TIM_TypeDef* TIMx, int arr){
+	TIMx->ARR = arr;
+}

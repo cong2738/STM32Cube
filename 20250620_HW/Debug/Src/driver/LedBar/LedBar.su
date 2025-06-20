@@ -1,0 +1,3 @@
+../Src/driver/LedBar/LedBar.c:25:6:LedBar_Init	16	static
+../Src/driver/LedBar/LedBar.c:32:6:LedBar_SetPorts	24	static
+../Src/driver/LedBar/LedBar.c:39:6:LedBar_Write	24	static

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<item key="replaceBarOpen" value="true"/>
+	<list key="searchhistory">
+		<item value="hBtnRight"/>
+		<item value="hBtnLeft"/>
+		<item value="DOWN"/>
+		<item value="UP"/>
+		<item value="uint"/>
+		<item value="SHIFT_RIGHT"/>
+		<item value="SHIFT_LEFT"/>
+		<item value="OFF"/>
+		<item value="LedBar"/>
+		<item value="."/>
+		<item value="regNum"/>
+		<item value="GPIOB"/>
+		<item value="GPIO"/>
+		<item value="GP"/>
+		<item value="RCC_AHB1ENR0"/>
+	</list>
+	<list key="replacehistory">
+		<item value="hBtnCLEAR"/>
+		<item value="hBtnRUN"/>
+		<item value="CLEAR"/>
+		<item value="RUN"/>
+		<item value="DOWN"/>
+		<item value="UP"/>
+		<item value="STOP"/>
+		<item value="SEG"/>
+		<item value="-&gt;"/>
+		<item value="BitNum"/>
+	</list>
+</section>

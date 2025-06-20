@@ -1,0 +1,40 @@
+/*
+ * button.c
+ *
+ *  Created on: Jun 19, 2025
+ *      Author: kccistc
+ */
+#include "button.h"
+
+enum {
+	PUSHED = 0,
+	RELEASED = 1,
+};
+
+typedef enum {
+	NO_ACT = 0,
+	ACT_PUSHED = 1,
+	ACT_RELEASED = 2,
+} button_state_t;
+
+void Button_Init() {
+	GPIO_Init(GPIOC, 13, INPUT);
+}
+
+int Button_GetState() {
+	static uint32_t preState = RELEASED;
+	uint32_t curState;
+	curState = GPIO_ReadPin(GPIOC, 13);
+
+	if(preState == RELEASED && curState == PUSHED){
+			delay(2);
+			preState = curState;
+			return ACT_PUSHED;
+		}
+	if(preState == PUSHED && curState == RELEASED){
+			delay(2);
+			preState = curState;
+			return ACT_RELEASED;
+		}
+	return NO_ACT;
+}

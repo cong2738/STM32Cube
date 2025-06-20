@@ -1,0 +1,46 @@
+/*
+ * button.c
+ *
+ *  Created on: Jun 19, 2025
+ *      Author: kccistc
+ */
+#include "Button.h"
+
+typedef	struct{
+	GPIO_TypeDef *GPIOx;
+	uint32_t PinNum;
+	static uint32_t preState;
+} button_handler_t;
+
+enum {
+    PUSHED = 0,
+    RELEASED = 1,
+};
+
+typedef enum {
+    NO_ACT = 0,
+    ACT_PUSHED = 1,
+    ACT_RELEASED = 2,
+} button_state_t;
+
+void Button_Init(GPIO_TypeDef* GPIOx, uint32_t PinNum)
+{
+    GPIO_Init(GPIOx, PinNum, INPUT);
+}
+
+int Button_GetState(button_handler_t button_handlerX)
+{
+    uint32_t curState;
+    curState = GPIO_ReadPin(button_handlerX.GPIOx, button_handlerX.PinNum);
+
+    if (button_handlerX.preState == RELEASED && curState == PUSHED) {
+        delay(200);
+        preState = curState;
+        return ACT_PUSHED;
+    } else if (preState == PUSHED && curState == RELEASED) {
+        delay(200);
+        preState = curState;
+        return ACT_RELEASED;
+    }
+    return NO_ACT;
+}

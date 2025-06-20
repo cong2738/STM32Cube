@@ -1,0 +1,51 @@
+#include "AP_main.h"
+
+typedef enum {
+	STOP,
+	UP,
+	DOWN
+}led_state_e;
+
+button_handler_t hBtnLeft;
+button_handler_t hBtnRight;
+button_handler_t hBtOnSTOP;
+
+int ap_run(){
+	uint32_t data = 0;
+	uint32_t sys_count = 0;
+	led_state_e led_state = STOP;
+	while(1){
+		int Btn1_state = Button_GetState(&hBtnLeft);
+		int Btn2_state = Button_GetState(&hBtnRight);
+		int Btn3_state = Button_GetState(&hBtOnSTOP);
+		switch (led_state) {
+		case STOP:
+			if(Btn1_state == ACT_PUSHED) led_state = UP;
+			else if (Btn2_state == ACT_PUSHED) led_state = DOWN;
+			break;
+		case UP:
+			if(Btn3_state == ACT_PUSHED) led_state = STOP;
+			else if (Btn2_state == ACT_PUSHED) led_state = DOWN;
+			break;
+		case DOWN:
+			if(Btn3_state == ACT_PUSHED) led_state = STOP;
+			else if (Btn1_state == ACT_PUSHED) led_state = UP;
+			break;
+		}
+		SEG_SHOW(data);
+		sys_count++;
+		if(sys_count == 1000) {
+			sys_count = 0;
+			data += UD;
+		}
+	}
+	return 0 ;
+}
+
+void ap_init(){
+	SystemClock_init();
+	Button_Init(&hBtnLeft, GPIOB, 5);
+	Button_Init(&hBtnRight, GPIOB, 3);
+	Button_Init(&hBtOnSTOP, GPIOA, 10);
+	SEG_Init();
+}

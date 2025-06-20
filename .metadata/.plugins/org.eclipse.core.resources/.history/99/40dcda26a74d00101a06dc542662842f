@@ -1,0 +1,28 @@
+/*
+ * sys_tic.c
+ *
+ *  Created on: Jun 20, 2025
+ *      Author: kccistc
+ */
+
+#include "sys_tick.h"
+
+TIM_TypeDef* hTcikTIM;
+
+void SysTick_Init(TIM_TypeDef* TIMx, uint32_t psc, uint32_t arr){
+   hTcikTIM = TIMx;
+   hTcikTIM->PSC = psc;
+   hTcikTIM->ARR = arr;
+}
+
+uint32_t getTick(){
+	return hTcikTIM->CNT;
+}
+
+void SysTick_Start(){
+	hTcikTIM->CR1 |= (1<<0);
+}
+
+void SysTick_Stop(){
+	hTcikTIM->CR1 &= ~(1<<0);
+}

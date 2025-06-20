@@ -1,0 +1,10 @@
+#include "AP_main.h"
+
+int ap_run(){
+	FND_WtireData(0);
+	return 0;
+}
+
+void ap_init(){
+	FND_Init();
+}

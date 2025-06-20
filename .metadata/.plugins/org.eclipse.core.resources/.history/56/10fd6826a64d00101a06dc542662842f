@@ -1,0 +1,94 @@
+/*
+ * ap_main.c
+ *
+ *  Created on: Jun 19, 2025
+ *      Author: kccistc
+ */
+
+#include "ap_main.h"
+
+enum {
+	START,
+	STOP,
+    LEFT,
+    RIGHT };
+
+button_handler_t hBtnLeft;
+button_handler_t hBtnRight;
+button_handler_t hBtnOnSTOP;
+
+void TIM2_IRQHandler(void) // 인터럽트 함수 Startup가보면 인터럽트벡터등 이름이 명시되어 있음
+{
+	static int msec = 0;
+	static int sec = 0;
+	static int min = 0;
+	struct {
+
+	}watch_data;
+    FND_DisplayData();
+    TIM_ClearUIF(TIM2);
+    msec++;
+	if(msec == 100){
+		msec = 0;
+		sec++;
+	}
+	if(sec == 60) {
+		sec = 0;
+		min++;
+	}
+	if(min == 10) {
+		min = 0;
+	}
+}
+
+int ap_main()
+{
+	uint32_t watch_state = START;
+    while (1) {
+        switch (watch_state) {
+        case START:
+        	watch_state = STOP;
+        	break;
+        case STOP:
+            if (Button_GetState(&hBtnLeft) == ACT_PUSHED) {
+            	watch_state = LEFT;
+            } else if (Button_GetState(&hBtnRight) == ACT_PUSHED) {
+            	watch_state = RIGHT;
+            }
+            break;
+        case LEFT:
+            if (Button_GetState(&hBtnOnSTOP) == ACT_PUSHED) {
+            	watch_state = STOP;
+            } else if (Button_GetState(&hBtnRight) == ACT_PUSHED) {
+            	watch_state = RIGHT;
+            }
+            break;
+        case RIGHT:
+            if (Button_GetState(&hBtnOnSTOP) == ACT_PUSHED) {
+            	watch_state = STOP;
+            } else if (Button_GetState(&hBtnLeft) == ACT_PUSHED) {
+                watch_state = LEFT;
+            }
+            break;
+        }
+    }
+
+    return 0;
+}
+
+void ap_init()
+{
+    SystemClock_init();
+
+    Button_Init(&hBtnLeft, GPIOB, 5);
+    Button_Init(&hBtnRight, GPIOB, 3);
+    Button_Init(&hBtnOnSTOP, GPIOA, 10);
+
+    FND_Init();
+
+    //TIM2 EN, TIM2INTRF
+    TIM_Init(TIM2, 16 - 1, 1000 - 1);
+    TIM_CntStart(TIM2);
+    TIM_UIEnable(TIM2);
+    NVIC_EnableIRQ(TIM2_IRQn); // TIM2 interruft ENgetTick() - prevCounterTime
+}

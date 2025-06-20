@@ -1,0 +1,112 @@
+/*
+ * Seven_Segment.c
+ *
+ *  Created on: Jun 19, 2025
+ *      Author: kccistc
+ */
+#include "Seven_Segment.h"
+
+//private
+int* bcd_slice(int data);
+int SegData_Decode(int num);
+int decode_CMM();
+
+
+
+typedef struct {
+	GPIO_TypeDef* GPIO;
+	uint32_t pinNum;
+}SEG_GPO;
+
+SEG_GPO SEG[13] = {
+		{GPIOC,8},
+		{GPIOC,6},
+		{GPIOC,5},
+		{GPIOA,12},
+		{GPIOA,11},
+		{GPIOB,12},
+		{GPIOB,2},
+		{GPIOB,1},
+		{GPIOB,15},
+		{GPIOB,14},
+		{GPIOB,13},
+		{GPIOC,4}
+};
+
+int* bcd_slice(int data){
+	int res[4] = {0,0,0,0};
+	for	(int i = 0; i < 5; i++){
+		res[i] = SegData_Decode(data % 10);
+		data /= 10;
+	}
+	return (int*) res;
+}
+
+int SegData_Decode(int num){
+	int seg;
+	switch (num) {
+	case 0x0: seg = 0xc0; break;
+	case 0x1: seg = 0xf9; break;
+	case 0x2: seg = 0xa4; break;
+	case 0x3: seg = 0xb0; break;
+	case 0x4: seg = 0x99; break;
+	case 0x5: seg = 0x92; break;
+	case 0x6: seg = 0x82; break;
+	case 0x7: seg = 0xf8; break;
+	case 0x8: seg = 0x80; break;
+	case 0x9: seg = 0x90; break;
+	case 0xa: seg = 0x88; break;
+	case 0xb: seg = 0x83; break;
+	case 0xc: seg = 0xc6; break;
+	case 0xd: seg = 0xa1; break;
+	case 0xe: seg = 0x86; break;
+	case 0xf: seg = 0x8e; break;
+	}
+	return;
+}
+
+int decode_CMM(int count){
+	static int SEG_preCount = 0;
+	int diff = count - SEG_preCount;
+	int cmm = 0;
+	if(count < 20){
+		cmm = 0;
+		SEG_preCount = count;
+	} else if(count < 40){
+		cmm = 1;
+		SEG_preCount = count;
+	} else if(count < 60) {
+		cmm = 2;
+		SEG_preCount = count;
+	} else if(count < 80){
+		cmm = 3;
+		SEG_preCount = count;
+	}
+	return cmm;
+}
+
+// public func
+
+void SEG_Init(){
+	for (int var = 0; var < 12; var++) {
+		GPIO_Init(SEG[var].GPIO,SEG[var].pinNum, OUTPUT);
+	}
+}
+
+void SEG_SHOW(int data, int count){
+	int seg_data[4];
+	seg_data[3] = SegData_Decode(data%10);
+	seg_data[2] = SegData_Decode(data/10%10);
+	seg_data[1] = SegData_Decode(data/100%10);
+	seg_data[0] = SegData_Decode(data/1000);
+	int cmm = decode_CMM(count);
+	int test = SegData_Decode(0);
+	for (int i = 0; i < 4; i++) {
+		GPIO_WritePin(SEG[i].GPIO, SEG[i].pinNum, PIN_RESET);
+	}
+	GPIO_WritePin(SEG[cmm].GPIO, SEG[cmm].pinNum, PIN_SET);
+	for (int i = 0; i < 8; i++) {
+		int pin_data = (seg_data[cmm] & (1U << i))?1:0;
+		GPIO_WritePin(SEG[i+4].GPIO, SEG[i+4].pinNum, ((pin_data)?PIN_SET:PIN_RESET));
+	}
+}

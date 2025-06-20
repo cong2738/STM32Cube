@@ -1,0 +1,15 @@
+/*
+ * FND.c
+ *
+ *  Created on: Jun 20, 2025
+ *      Author: kccistc
+ */
+
+
+#include "FND.h"
+
+uint16_t fndDisplayNum = 0;
+
+void FndDataShow(){
+
+}

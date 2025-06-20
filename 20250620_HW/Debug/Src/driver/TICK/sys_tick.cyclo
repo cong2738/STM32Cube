@@ -1,0 +1,2 @@
+../Src/driver/TICK/sys_tick.c:12:10:getTick	1
+../Src/driver/TICK/sys_tick.c:16:6:incTick	1

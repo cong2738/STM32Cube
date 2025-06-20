@@ -1,0 +1,7 @@
+../Src/driver/Seven_Segment/Seven_Segment.c:39:5:Decode	1
+../Src/driver/Seven_Segment/Seven_Segment.c:44:5:bcd_slice	5
+../Src/driver/Seven_Segment/Seven_Segment.c:54:5:DataDecodeToSeg	17
+../Src/driver/Seven_Segment/Seven_Segment.c:76:5:decode_CMM	6
+../Src/driver/Seven_Segment/Seven_Segment.c:93:6:SEG_Init	3
+../Src/driver/Seven_Segment/Seven_Segment.c:102:6:SEG_SHOW	3
+../Src/driver/Seven_Segment/Seven_Segment.c:115:6:SEG_Write	3

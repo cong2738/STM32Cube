@@ -1,0 +1,139 @@
+/*
+ * ap_main.c
+ *
+ *  Created on: Jun 19, 2025
+ *      Author: kccistc
+ */
+
+#include "ap_main.h"
+
+enum { START,
+	WATCH,
+	STOPWATCH_STOP,
+	STOPWATCH_RUN,
+	STOPWATCH_CLEAR
+};
+
+typedef struct {
+	uint16_t msec;
+	uint16_t sec;
+	uint16_t min;
+}clock_type;
+
+button_handler_t hBtnA;
+button_handler_t hBtnB;
+button_handler_t hBtnC;
+
+void TIM2_IRQHandler(void) // 인터럽트 함수 Startup가보면 인터럽트벡터등 이름이 명시되어 있음
+{
+	incTick();
+	FND_DisplayData();
+	TIM_ClearUIF(TIM2);
+}
+
+int ap_main()
+{
+	clock_type clock[2];
+	uint32_t ap_state = START;
+	uint32_t SW_run = 0;
+	uint32_t dp = 0;
+	clock[0].msec = 0;
+	clock[0].sec = 0;
+	clock[0].min = 0;
+	clock[1].msec = 0;
+	clock[1].sec = 0;
+	clock[1].min = 0;
+	uint32_t prevCounterTime = 0;
+
+	while (1) {
+		if(getTick() - prevCounterTime >= 100) {
+			prevCounterTime = getTick();
+			clock[0].msec ++;
+
+			if(clock[0].msec == 10){
+				clock[0].msec = 0;
+				clock[0].sec++;
+			}
+			if(clock[0].sec == 60){
+				clock[0].sec = 0;
+				clock[0].min++;
+			}
+			if(clock[0].min == 10){
+				clock[0].min = 0;
+			}
+		}
+		if(SW_run) if(getTick() - prevCounterTime >= 100) {
+			prevCounterTime = getTick();
+			clock[1].msec ++;
+
+			if(clock[1].msec == 10){
+				clock[1].msec = 0;
+				clock[1].sec++;
+			}
+			if(clock[1].sec == 60){
+				clock[1].sec = 0;
+				clock[1].min++;
+			}
+			if(clock[1].min == 10){
+				clock[1].min = 0;
+			}
+		}
+		dp = 0;
+
+		switch (ap_state) {
+		case START:
+			ap_state = WATCH;
+			break;
+		case WATCH:
+			if(clock[WATCH].msec > 5) dp ^= (1U<<1);
+			if(clock[WATCH].sec > 5) dp ^= (1U<<3);
+			FND_WtireData(clock[WATCH].msec+clock[WATCH].sec*10+clock[WATCH].min*1000, dp);
+			if (Button_GetState(&hBtnA) == ACT_PUSHED) {
+				ap_state = STOPWATCH_STOP;
+			}
+			break;
+		case STOPWATCH_RUN:
+			SW_run= 1;
+			if(clock[WATCH].msec > 5) dp ^= (1U<<1);
+			if(clock[WATCH].sec > 5) dp ^= (1U<<3);
+			FND_WtireData(clock[WATCH].msec+clock[WATCH].sec*10+clock[WATCH].min*1000, dp);
+			if (Button_GetState(&hBtnA) == ACT_PUSHED) {
+				ap_state = WATCH;
+			} else if (Button_GetState(&hBtnB) == ACT_PUSHED) {
+				ap_state = STOPWATCH_STOP;
+			}
+			break;
+		case STOPWATCH_STOP:
+			SW_run = 0;
+			if (Button_GetState(&hBtnA) == ACT_PUSHED) {
+				ap_state = WATCH;
+			} else if (Button_GetState(&hBtnB) == ACT_PUSHED) {
+				ap_state = STOPWATCH_RUN;
+			} else if (Button_GetState(&hBtnC) == ACT_PUSHED) {
+				ap_state = STOPWATCH_CLEAR;
+			}
+			break;
+		case STOPWATCH_CLEAR:
+			ap_state = STOPWATCH_STOP;
+			break;
+		}
+
+	}
+	return 0;
+}
+
+void ap_init()
+{
+	SystemClock_init();
+	LedBar_Init();
+	Button_Init(&hBtnA, GPIOB, 5);
+	Button_Init(&hBtnB, GPIOB, 3);
+	Button_Init(&hBtnC, GPIOA, 10);
+	FND_Init();
+
+	//TIM2 EN, TIM2INTRF
+	TIM_Init(TIM2, 16 - 1, 1000 - 1);
+	TIM_CntStart(TIM2);
+	TIM_UIEnable(TIM2);
+	NVIC_EnableIRQ(TIM2_IRQn); // TIM2 interruft EN
+}

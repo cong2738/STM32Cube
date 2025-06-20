@@ -1,0 +1,4 @@
+../Src/driver/GPIO/GPIO.c:3:6:GPIO_Init	2
+../Src/driver/GPIO/GPIO.c:13:6:GPIO_WritePin	2
+../Src/driver/GPIO/GPIO.c:22:10:GPIO_ReadPin	1
+../Src/driver/GPIO/GPIO.c:27:6:GPIO_TogglePin	1

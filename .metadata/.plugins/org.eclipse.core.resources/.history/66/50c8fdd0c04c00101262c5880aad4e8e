@@ -1,0 +1,17 @@
+/*
+ * button.h
+ *
+ *  Created on: Jun 19, 2025
+ *      Author: kccistc
+ */
+
+#ifndef DRIVER_BUTTON_BUTTON_H_
+#define DRIVER_BUTTON_BUTTON_H_
+
+#include "GPIO.h"
+#include "SystemClock.h"
+
+void Button_Init();
+int Button_GetState();
+
+#endif /* DRIVER_BUTTON_BUTTON_H_ */

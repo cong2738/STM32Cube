@@ -1,0 +1,65 @@
+/*
+ * FND.c
+ *
+ *  Created on: Jun 20, 2025
+ *      Author: kccistc
+ */
+
+
+#include "FND.h"
+
+typedef struct{
+	GPIO_TypeDef* GPIO;
+	uint32_t pinNum;
+} SEG_GPIO;
+
+enum {DIGIT1,DIGIT10,DIGIT100,DIGIT1000};
+
+uint16_t fndDisplayNum = 0; // fnd main data(max 9999)
+
+/////public/////
+// Write FndData
+void FND_WtireData(uint32_t data){
+	fndDisplayNum = Data;
+}
+
+
+// Read FndData
+uint16_t FND_ReadData(){
+	return fndDisplayNum;
+}
+
+// Display FndData
+void FND_DisplayData(){
+	static int digitPos = DIGIT0;
+	// 인터럽트 발생시 한 자리씩 출력
+	digitPos = (digitPos + 1) % 4;
+	FND_DisOff();
+	switch (digitPos) {
+	case DIGIT1:
+		FND_DisDigit(digitPos, fndDisplayNum%10);
+		break;
+	case DIGIT10:
+		FND_DisDigit(digitPos, fndDisplayNum/10%10);
+		break;
+	case DIGIT100:
+		FND_DisDigit(digitPos, fndDisplayNum/100%10);
+		break;
+	case DIGIT1000:
+		FND_DisDigit(digitPos, fndDisplayNum/1000%10);
+		break;
+	default:
+		break;
+	}
+	FND_DisOn();
+}
+
+void FND_DisOff(){
+	// GPIO_Write(GPIOx,Pin,SET);
+}
+void FND_DisOn(){
+	// GPIO_Write(GPIOx,Pin,RESET);
+}
+void FND_DisDigit(int digit, int data){
+
+}

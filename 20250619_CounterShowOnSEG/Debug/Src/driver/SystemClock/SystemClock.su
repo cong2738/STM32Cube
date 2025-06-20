@@ -1,0 +1,2 @@
+../Src/driver/SystemClock/SystemClock.c:11:6:SystemClock_init	4	static
+../Src/driver/SystemClock/SystemClock.c:15:6:delay	24	static

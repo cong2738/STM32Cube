@@ -1,0 +1,57 @@
+#include "AP_main.h"
+
+typedef enum {
+	OFF,
+	SHIFT_LEFT,
+	SHIFT_RIGHT
+}led_state_e;
+
+button_handler_t hBtnLeft;
+button_handler_t hBtnRight;
+button_handler_t hBtOnOff;
+
+void TIM2_IRQHandler(void){
+	FND_DisplayData();
+	TIM2->SR & ~(1<<0);
+}
+
+int ap_run(){
+	uint8_t data = 1;
+	led_state_e led_state = OFF;
+	while(1){
+		FND_WtireData(data++);
+		delay(300);
+//		FND_DisplayData();
+		int Btn1_state = Button_GetState(&hBtnLeft);
+		int Btn2_state = Button_GetState(&hBtnRight);
+		int Btn3_state = Button_GetState(&hBtOnOff);
+		switch (led_state) {
+			case OFF:
+				if(Btn1_state == ACT_PUSHED) led_state = SHIFT_LEFT;
+				else if (Btn2_state == ACT_PUSHED) led_state = SHIFT_RIGHT;
+				break;
+			case SHIFT_LEFT:
+				if(Btn3_state == ACT_PUSHED) led_state = OFF;
+				else if (Btn2_state == ACT_PUSHED) led_state = SHIFT_RIGHT;
+				break;
+			case SHIFT_RIGHT:
+				if(Btn3_state == ACT_PUSHED) led_state = OFF;
+				else if (Btn1_state == ACT_PUSHED) led_state = SHIFT_LEFT;
+				break;
+		}
+	}
+	return 0 ;
+}
+
+void ap_init(){
+	SystemClock_init();
+	LedBar_Init(); // ledBar set OutputMode
+	Button_Init(&hBtnLeft, GPIOB, 5);
+	Button_Init(&hBtnRight, GPIOB, 3);
+	Button_Init(&hBtOnOff, GPIOA, 10);
+	FND_Init();
+	TIM_Init(TIM2, 16-1, 1000-1);
+	TIM_CntStart(TIM2);
+	TIM_IEnable(TIM2);
+	NVIC_EnableIRQ(TIM2_IRQn);
+}

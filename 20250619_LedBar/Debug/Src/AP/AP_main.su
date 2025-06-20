@@ -1,0 +1,2 @@
+../Src/AP/AP_main.c:13:5:ap_run	24	static
+../Src/AP/AP_main.c:44:6:ap_init	8	static

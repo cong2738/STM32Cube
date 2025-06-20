@@ -1,0 +1,9 @@
+#include "AP_main.h"
+
+int ap_run(){
+	return 0;
+}
+
+void ap_init(){
+	FND_Init();
+}
