@@ -1,0 +1,12 @@
+../Src/driver/TIM/TIM.c:11:6:TIM_Init	1
+../Src/driver/TIM/TIM.c:18:6:TIM_CntStart	1
+../Src/driver/TIM/TIM.c:23:6:TIM_CntStop	1
+../Src/driver/TIM/TIM.c:28:6:TIM_UIEnable	1
+../Src/driver/TIM/TIM.c:33:6:TIM_UIDisable	1
+../Src/driver/TIM/TIM.c:38:10:TIM_ReadCNT	1
+../Src/driver/TIM/TIM.c:43:6:TIM_WriteCNT	1
+../Src/driver/TIM/TIM.c:48:10:TIM_ReadPSC	1
+../Src/driver/TIM/TIM.c:53:6:TIM_WritePSC	1
+../Src/driver/TIM/TIM.c:58:10:TIM_ReadARR	1
+../Src/driver/TIM/TIM.c:63:6:TIM_WriteARR	1
+../Src/driver/TIM/TIM.c:68:6:TIM_ClearUIFlag	1

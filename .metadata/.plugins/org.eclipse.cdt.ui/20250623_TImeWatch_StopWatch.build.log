@@ -1,0 +1,17 @@
+17:40:03 **** Incremental Build of configuration Debug for project 20250623_TImeWatch_StopWatch ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/ap/StopWatch.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"C:/harman/STM32Cube/20250623_TImeWatch_StopWatch/Core/ap" -I"C:/harman/STM32Cube/20250623_TImeWatch_StopWatch/Core/driver/Button" -I"C:/harman/STM32Cube/20250623_TImeWatch_StopWatch/Core/driver/FND" -I"C:/harman/STM32Cube/20250623_TImeWatch_StopWatch/Core/driver/LedBar" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/ap/StopWatch.d" -MT"Core/ap/StopWatch.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/ap/StopWatch.o"
+arm-none-eabi-gcc -o "20250623_TImeWatch_StopWatch.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\harman\STM32Cube\20250623_TImeWatch_StopWatch\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="20250623_TImeWatch_StopWatch.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 20250623_TImeWatch_StopWatch.elf
+ 
+arm-none-eabi-size  20250623_TImeWatch_StopWatch.elf 
+arm-none-eabi-objdump -h -S 20250623_TImeWatch_StopWatch.elf  > "20250623_TImeWatch_StopWatch.list"
+   text	   data	    bss	    dec	    hex	filename
+  10512	    116	   1708	  12336	   3030	20250623_TImeWatch_StopWatch.elf
+Finished building: default.size.stdout
+ 
+Finished building: 20250623_TImeWatch_StopWatch.list
+ 
+
+17:40:04 Build Finished. 0 errors, 0 warnings. (took 708ms)
+

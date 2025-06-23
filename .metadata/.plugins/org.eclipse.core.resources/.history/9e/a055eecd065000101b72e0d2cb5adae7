@@ -1,0 +1,19 @@
+/*
+ * StopWatch.h
+ *
+ *  Created on: Jun 23, 2025
+ *      Author: kccistc
+ */
+
+#ifndef AP_STOPWATCH_H_
+#define AP_STOPWATCH_H_
+
+#include "FND.h"
+#include "Button.h"
+#include "ap_main.h"
+
+void StopWatch_IncTimeCallBack();
+void StopWatch_Excute();
+void StopWatchButton_Init(Button_Handler_t Mode, Button_Handler_t RunStop, Button_Handler_t Clear);void StopWatchButton_Init(Button_Handler_t Mode, Button_Handler_t RunStop, Button_Handler_t Clear)
+
+#endif /* AP_STOPWATCH_H_ */

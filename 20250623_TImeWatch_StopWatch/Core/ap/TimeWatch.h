@@ -1,0 +1,16 @@
+/*
+ * TimeWatch.h
+ *
+ *  Created on: Jun 23, 2025
+ *      Author: kccistc
+ */
+
+#ifndef AP_TIMEWATCH_H_
+#define AP_TIMEWATCH_H_
+
+#include "FND.h"
+
+void TimeWatch_IncTimeCallBack();
+void TimeWatch_Excute();
+
+#endif /* AP_TIMEWATCH_H_ */

@@ -3,6 +3,12 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="dotData"/>
+		<item value="hBtnMode"/>
+		<item value="swopWatch"/>
+		<item value="PIN_"/>
+		<item value="GPIO_WritePin"/>
+		<item value="sw_"/>
 		<item value="clock[WATCH]"/>
 		<item value="clock[1]"/>
 		<item value="[1]"/>
@@ -12,14 +18,12 @@
 		<item value="hBtnLeft"/>
 		<item value="Btn"/>
 		<item value="RIGHT"/>
-		<item value="LEFT"/>
-		<item value="OFF"/>
-		<item value="core_cm4"/>
-		<item value="SegData_Decode"/>
-		<item value="DOWN"/>
-		<item value="UP"/>
 	</list>
 	<list key="replacehistory">
+		<item value="timeWatchDotData"/>
+		<item value="stopWatchDotData"/>
+		<item value="stopWatch"/>
+		<item value="HAL_GPIO_WritePin"/>
 		<item value="clock"/>
 		<item value="stopwatch"/>
 		<item value="hBtnC"/>
@@ -31,9 +35,5 @@
 		<item value="hBtnCLEAR"/>
 		<item value="hBtnRUN"/>
 		<item value="CLEAR"/>
-		<item value="RUN"/>
-		<item value="DOWN"/>
-		<item value="UP"/>
-		<item value="SEG"/>
 	</list>
 </section>

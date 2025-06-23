@@ -1,0 +1,16 @@
+/*
+ * button_manager.h
+ *
+ *  Created on: Jun 23, 2025
+ *      Author: kccistc
+ */
+
+#ifndef AP_BUTTON_MANAGER_H_
+#define AP_BUTTON_MANAGER_H_
+
+
+Button_Handler_t hBtnMode;
+Button_Handler_t hBtnRunStop;
+Button_Handler_t hBtnClear;
+
+#endif /* AP_BUTTON_MANAGER_H_ */

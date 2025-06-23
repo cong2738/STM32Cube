@@ -1,0 +1,14 @@
+/*
+ * button_manager.c
+ *
+ *  Created on: Jun 23, 2025
+ *      Author: kccistc
+ */
+
+#include "button_manager.h"
+
+void buttonManger_Init(){
+	Button_Init(&hBtnMode, GPIOB, GPIO_PIN_5);
+	Button_Init(&hBtnRunStop, GPIOB, GPIO_PIN_3);
+	Button_Init(&hBtnClear, GPIOA, GPIO_PIN_10);
+}

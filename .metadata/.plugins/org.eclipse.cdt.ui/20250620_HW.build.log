@@ -1,17 +1,10 @@
-18:28:45 **** Incremental Build of configuration Debug for project 20250620_HW ****
+17:37:15 **** Incremental Build of configuration Debug for project 20250620_HW ****
 make -j16 all 
-arm-none-eabi-gcc "../Src/AP/AP_main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -c -I../Inc -I"C:/harman/STM32Cube/20250620_HW/Src/AP" -I"C:/harman/STM32Cube/20250620_HW/Src/driver/button" -I"C:/harman/STM32Cube/20250620_HW/Src/driver/FND" -I"C:/harman/STM32Cube/20250620_HW/Src/driver/GPIO" -I"C:/harman/STM32Cube/20250620_HW/Src/driver/LedBar" -I"C:/harman/STM32Cube/20250620_HW/Src/driver/SystemClock" -I"C:/harman/STM32Cube/20250620_HW/Src/driver/TICK" -I"C:/harman/STM32Cube/20250620_HW/Src/driver/TIM" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/AP/AP_main.d" -MT"Src/AP/AP_main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/AP/AP_main.o"
-arm-none-eabi-gcc -o "20250620_HW.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\harman\STM32Cube\20250620_HW\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="20250620_HW.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 20250620_HW.elf
- 
 arm-none-eabi-size  20250620_HW.elf 
-arm-none-eabi-objdump -h -S 20250620_HW.elf  > "20250620_HW.list"
    text	   data	    bss	    dec	    hex	filename
    3160	    160	   1616	   4936	   1348	20250620_HW.elf
 Finished building: default.size.stdout
  
-Finished building: 20250620_HW.list
- 
 
-18:28:46 Build Finished. 0 errors, 0 warnings. (took 439ms)
+17:37:15 Build Finished. 0 errors, 0 warnings. (took 199ms)
 

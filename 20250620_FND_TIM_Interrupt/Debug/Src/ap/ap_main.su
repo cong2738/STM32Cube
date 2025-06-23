@@ -1,0 +1,8 @@
+../Inc/core_cm4.h:1684:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
+../Src/ap/ap_main.c:25:6:TIM2_IRQHandler	8	static
+../Src/ap/ap_main.c:46:6:Clock	8	static
+../Src/ap/ap_main.c:64:6:Stopwatch	8	static
+../Src/ap/ap_main.c:93:5:getClockDataform	4	static
+../Src/ap/ap_main.c:98:5:getStopWatchDataReform	4	static
+../Src/ap/ap_main.c:105:5:ap_main	16	static
+../Src/ap/ap_main.c:159:6:ap_init	8	static
