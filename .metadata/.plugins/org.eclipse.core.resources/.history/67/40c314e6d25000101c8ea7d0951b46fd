@@ -1,0 +1,89 @@
+/*
+ * stopWatch.c
+ *
+ *  Created on: Jun 23, 2025
+ *      Author: kccistc
+ */
+
+#include "stopWatch.h"
+
+typedef enum{STOP, RUN, CLEAR}stopWatch_s;
+
+extern inputData_TypeDef controlData;
+static stopWatch_s stopWatchstate = STOP;
+static Watch_t stopWatch = {STOP_WATCH, 0, 0, 0, 0};
+
+void StopWatch_IncstopCallBack(){
+	if (stopWatchstate == RUN) {
+		StopWatch_Incstop();
+	}
+}
+
+void StopWatch_Incstop()
+{
+	if (stopWatch.msec < 1000 - 1) {
+		stopWatch.msec++;
+		return;
+	} else {
+		stopWatch.msec = 0;
+	}
+	if (stopWatch.sec < 60 - 1) {
+		stopWatch.sec++;
+		return;
+	} else{
+		stopWatch.sec = 0;
+	}
+
+	if (stopWatch.min < 60 - 1) {
+		stopWatch.min++;
+		return;
+	}
+	stopWatch.min = 0;
+
+	if (stopWatch.hour < 24 - 1) {
+		stopWatch.hour++;
+		return;
+	}
+	stopWatch.hour = 0;
+}
+
+void StopWatch_Excute()
+{
+	switch (stopWatchstate) {
+	case STOP:
+		StopWatch_Stop();
+		break;
+	case RUN:
+		StopWatch_Run();
+		break;
+	case CLEAR:
+		StopWatch_Clear();
+		break;
+	}
+	Presenter_OutData(stopWatch);
+}
+
+void StopWatch_Stop(){
+	if (controlData.id == controlId_RUN) {
+		controlData.id = controlId_NO_CONTROL;
+		stopWatchstate = RUN;
+	} else if (controlData.id == controlId_BTN_CLEAR) {
+		controlData.id = controlId_NO_CONTROL;
+		stopWatchstate = CLEAR;
+	}
+}
+void StopWatch_Run(){
+	if (controlData.id == controlId_RUN_STOP) {
+		controlData.id = controlId_NO_CONTROL;
+		stopWatchstate = STOP;
+	}
+}
+void StopWatch_Clear()
+{
+	stopWatchstate = STOP;
+	stopWatch.msec = 0;
+	stopWatch.sec = 0;
+	stopWatch.min = 0;
+	stopWatch.hour = 0;
+}
+

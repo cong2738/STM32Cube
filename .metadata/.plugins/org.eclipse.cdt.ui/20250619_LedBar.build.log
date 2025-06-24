@@ -1,4 +1,4 @@
-17:37:14 **** Incremental Build of configuration Debug for project 20250619_LedBar ****
+17:17:10 **** Incremental Build of configuration Debug for project 20250619_LedBar ****
 make -j16 all 
 arm-none-eabi-size  20250619_LedBar.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  20250619_LedBar.elf
 Finished building: default.size.stdout
  
 
-17:37:15 Build Finished. 0 errors, 0 warnings. (took 202ms)
+17:17:10 Build Finished. 0 errors, 0 warnings. (took 207ms)
 

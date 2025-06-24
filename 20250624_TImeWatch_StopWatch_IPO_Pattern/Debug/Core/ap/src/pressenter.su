@@ -1,0 +1,4 @@
+../Core/ap/src/pressenter.c:16:6:Presenter_DisplayTimeWatch	24	static
+../Core/ap/src/pressenter.c:21:6:Presenter_DisplayStopWatch	24	static
+../Core/ap/src/pressenter.c:26:6:Presenter_DataWrite	24	static
+../Core/ap/src/pressenter.c:31:6:Presenter_Excute	8	static

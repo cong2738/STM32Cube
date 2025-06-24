@@ -3,6 +3,8 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="Presenter_outData"/>
+		<item value="inputData"/>
 		<item value="dotData"/>
 		<item value="hBtnMode"/>
 		<item value="swopWatch"/>
@@ -16,8 +18,6 @@
 		<item value="hBtnOnOff"/>
 		<item value="hBtnRight"/>
 		<item value="hBtnLeft"/>
-		<item value="Btn"/>
-		<item value="RIGHT"/>
 	</list>
 	<list key="replacehistory">
 		<item value="timeWatchDotData"/>

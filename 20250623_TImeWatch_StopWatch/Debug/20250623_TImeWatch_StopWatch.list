@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00015ebc  00000000  00000000  00010fdc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000c8c7  00000000  00000000  00026e98  2**0
+ 17 .debug_line   0000d88f  00000000  00000000  00026e98  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000882b3  00000000  00000000  0003375f  2**0
+ 18 .debug_str    000882b3  00000000  00000000  00034727  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000bba12  2**0
+ 19 .comment      00000043  00000000  00000000  000bc9da  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002a90  00000000  00000000  000bba58  2**2
+ 20 .debug_frame  00002a90  00000000  00000000  000bca20  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000005f  00000000  00000000  000be4e8  2**0
+ 21 .debug_line_str 0000005f  00000000  00000000  000bf4b0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1990,8 +1990,8 @@ button_state_t Button_GetState(Button_Handler_t *hbtn)
  8000da4:	68fb      	ldr	r3, [r7, #12]
  8000da6:	2b00      	cmp	r3, #0
  8000da8:	d107      	bne.n	8000dba <Button_GetState+0x3a>
-		HAL_Delay(2); // debounce
- 8000daa:	2002      	movs	r0, #2
+		HAL_Delay(10); // debounce
+ 8000daa:	200a      	movs	r0, #10
  8000dac:	f000 f9de 	bl	800116c <HAL_Delay>
 		hbtn->prevState = PUSHED;
  8000db0:	687b      	ldr	r3, [r7, #4]
@@ -2009,8 +2009,8 @@ button_state_t Button_GetState(Button_Handler_t *hbtn)
  8000dc2:	68fb      	ldr	r3, [r7, #12]
  8000dc4:	2b01      	cmp	r3, #1
  8000dc6:	d107      	bne.n	8000dd8 <Button_GetState+0x58>
-		HAL_Delay(2); // debounce
- 8000dc8:	2002      	movs	r0, #2
+		HAL_Delay(10); // debounce
+ 8000dc8:	200a      	movs	r0, #10
  8000dca:	f000 f9cf 	bl	800116c <HAL_Delay>
 		hbtn->prevState = RELEASED;
  8000dce:	687b      	ldr	r3, [r7, #4]

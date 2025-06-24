@@ -1,4 +1,4 @@
-17:37:16 **** Incremental Build of configuration Debug for project 20250629_FND_TIM_Interruft ****
+17:17:12 **** Incremental Build of configuration Debug for project 20250629_FND_TIM_Interruft ****
 make -j16 all 
 arm-none-eabi-size  20250629_FND_TIM_Interruft.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  20250629_FND_TIM_Interruft.elf
 Finished building: default.size.stdout
  
 
-17:37:16 Build Finished. 0 errors, 0 warnings. (took 198ms)
+17:17:12 Build Finished. 0 errors, 0 warnings. (took 213ms)
 

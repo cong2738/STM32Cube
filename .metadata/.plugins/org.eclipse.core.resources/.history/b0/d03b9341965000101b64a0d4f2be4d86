@@ -1,0 +1,48 @@
+/*
+ * Button.c
+ *
+ *  Created on: Jun 19, 2025
+ *      Author: kccistc
+ */
+
+#include "Button.h"
+
+enum {PUSHED=0, RELEASED};
+
+void Button_Init(Button_Handler_t *hbtn, GPIO_TypeDef *GPIOx, uint16_t pinNum)
+{
+	hbtn->GPIOx = GPIOx;
+	hbtn->pinNum = pinNum;
+	hbtn->prevState = RELEASED;
+}
+
+button_state_t Button_GetState(Button_Handler_t *hbtn)
+{
+	static uint32_t push_time = 0;
+	static uint32_t release_time = 0;
+	uint32_t curState;
+	curState = HAL_GPIO_ReadPin(hbtn->GPIOx, hbtn->pinNum);	// normal state is high.
+	if(curState == PUSHED) {
+		if (push_time < 10) push_time++;
+		release_time = 0;
+	}
+	else {
+		push_time = 0;
+		if (release_time < 10) release_time++;
+	}
+	if ((hbtn->prevState == RELEASED) && (curState == PUSHED)){ // button released -> pushed
+		if(push_time < 10) { // debounce
+			hbtn->prevState = PUSHED;
+			return NO_ACT;
+		}
+		return ACT_PUSHED;
+	}
+	if ((hbtn->prevState == PUSHED) && (curState == RELEASED)){ // button pushed -> released
+		if(release_time < 10) { // debounce
+			hbtn->prevState = RELEASED;
+			return NO_ACT;
+		}
+		return ACT_RELEASED;
+	}
+	return NO_ACT;
+}

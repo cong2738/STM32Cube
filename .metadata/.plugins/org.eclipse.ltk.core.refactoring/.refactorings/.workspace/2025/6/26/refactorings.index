@@ -3,3 +3,14 @@
 1750644836759	Delete resource '20250623_TImeWatch_StopWatch/Core/driver/SysTick'
 1750644837582	Delete resource '20250623_TImeWatch_StopWatch/Core/driver/SystemClock'
 1750664713657	Delete 2 resources
+1750725606122	Delete resource '20250623_TImeWatch_StopWatch/20250623_TImeWatch_StopWatch Debug.launch'
+1750725617946	Delete resource '20250623_TImeWatch_StopWatch/Debug'
+1750732833957	Delete resource '20250624_TImeWatch_StopWatch_IPO_Pattern/20250624_TImeWatch_StopWatch.launch'
+1750732834903	Delete resource '20250624_TImeWatch_StopWatch_IPO_Pattern/Debug'
+1750734974634	Delete 3 resources
+1750735580557	Delete resource '20250624_TImeWatch_StopWatch_IPO_Pattern/inc'
+1750735596779	Delete resource '20250624_TImeWatch_StopWatch_IPO_Pattern/Core/ap/ap_main.su'
+1750735598608	Delete resource '20250624_TImeWatch_StopWatch_IPO_Pattern/Core/ap/ap_main.cyclo'
+1750747559327	Delete 2 resources
+1750747562461	Delete 2 resources
+1750749884276	Delete resource '20250624_TImeWatch_StopWatch_IPO_Pattern/FND'
