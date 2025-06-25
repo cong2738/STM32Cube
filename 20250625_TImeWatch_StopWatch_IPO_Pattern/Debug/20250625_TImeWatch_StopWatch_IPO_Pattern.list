@@ -2341,7 +2341,7 @@ void Presenter_OutData(Watch_t watchData)
 void Presenter_Excute()
 {
  8000fbc:	b5b0      	push	{r4, r5, r7, lr}
- 8000fbe:	b08a      	sub	sp, #40	@ 0x28
+ 8000fbe:	b08c      	sub	sp, #48	@ 0x30
  8000fc0:	af02      	add	r7, sp, #8
 	if (fnd_dispData.id == TIME_WATCH) {
  8000fc2:	4b23      	ldr	r3, [pc, #140]	@ (8001050 <Presenter_Excute+0x94>)
@@ -2359,8 +2359,8 @@ void Presenter_Excute()
  8000fd8:	e893 0003 	ldmia.w	r3, {r0, r1}
  8000fdc:	f000 f858 	bl	8001090 <Presenter_DispStopWatch>
 	}
-	char str_timewatch[16];
-	char str_stopwatch[16];
+	char str_timewatch[18];
+	char str_stopwatch[18];
 	sprintf(str_timewatch, "%02d:%02d:%02d", timewatch_disData.hour, timewatch_disData.min, timewatch_disData.sec);
  8000fe0:	4b1c      	ldr	r3, [pc, #112]	@ (8001054 <Presenter_Excute+0x98>)
  8000fe2:	785b      	ldrb	r3, [r3, #1]
@@ -2370,7 +2370,7 @@ void Presenter_Excute()
  8000fea:	4619      	mov	r1, r3
  8000fec:	4b19      	ldr	r3, [pc, #100]	@ (8001054 <Presenter_Excute+0x98>)
  8000fee:	78db      	ldrb	r3, [r3, #3]
- 8000ff0:	f107 0010 	add.w	r0, r7, #16
+ 8000ff0:	f107 0014 	add.w	r0, r7, #20
  8000ff4:	9300      	str	r3, [sp, #0]
  8000ff6:	460b      	mov	r3, r1
  8000ff8:	4917      	ldr	r1, [pc, #92]	@ (8001058 <Presenter_Excute+0x9c>)
@@ -2399,7 +2399,7 @@ void Presenter_Excute()
  8001028:	490e      	ldr	r1, [pc, #56]	@ (8001064 <Presenter_Excute+0xa8>)
  800102a:	f004 f869 	bl	8005100 <siprintf>
 	LCD_WriteStringXY(0,0,str_timewatch);
- 800102e:	f107 0310 	add.w	r3, r7, #16
+ 800102e:	f107 0314 	add.w	r3, r7, #20
  8001032:	461a      	mov	r2, r3
  8001034:	2100      	movs	r1, #0
  8001036:	2000      	movs	r0, #0
@@ -2412,7 +2412,7 @@ void Presenter_Excute()
  8001044:	f000 fdf9 	bl	8001c3a <LCD_WriteStringXY>
 }
  8001048:	bf00      	nop
- 800104a:	3720      	adds	r7, #32
+ 800104a:	3728      	adds	r7, #40	@ 0x28
  800104c:	46bd      	mov	sp, r7
  800104e:	bdb0      	pop	{r4, r5, r7, pc}
  8001050:	20000004 	.word	0x20000004

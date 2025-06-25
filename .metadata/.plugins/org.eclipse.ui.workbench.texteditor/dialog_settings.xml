@@ -3,6 +3,13 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="dispData"/>
+		<item value="LCD_backLightOn"/>
+		<item value="Cmd"/>
+		<item value="back"/>
+		<item value="front"/>
+		<item value="rear"/>
+		<item value="UART_RxCpltCallback"/>
 		<item value="Presenter_outData"/>
 		<item value="inputData"/>
 		<item value="dotData"/>
@@ -11,15 +18,12 @@
 		<item value="PIN_"/>
 		<item value="GPIO_WritePin"/>
 		<item value="sw_"/>
-		<item value="clock[WATCH]"/>
-		<item value="clock[1]"/>
-		<item value="[1]"/>
-		<item value="[0]"/>
-		<item value="hBtnOnOff"/>
-		<item value="hBtnRight"/>
-		<item value="hBtnLeft"/>
 	</list>
 	<list key="replacehistory">
+		<item value="fnd_dispData"/>
+		<item value="tail"/>
+		<item value="top"/>
+		<item value="back"/>
 		<item value="timeWatchDotData"/>
 		<item value="stopWatchDotData"/>
 		<item value="stopWatch"/>
@@ -31,9 +35,5 @@
 		<item value="hBtnA"/>
 		<item value="WATCH"/>
 		<item value="STOPWATCH"/>
-		<item value="STOP"/>
-		<item value="hBtnCLEAR"/>
-		<item value="hBtnRUN"/>
-		<item value="CLEAR"/>
 	</list>
 </section>

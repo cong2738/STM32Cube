@@ -39,8 +39,8 @@ void Presenter_Excute()
 	} else { // STOP_WATCH
 		Presenter_DispStopWatch(fnd_dispData);
 	}
-	char str_timewatch[16];
-	char str_stopwatch[16];
+	char str_timewatch[18];
+	char str_stopwatch[18];
 	sprintf(str_timewatch, "%02d:%02d:%02d", timewatch_disData.hour, timewatch_disData.min, timewatch_disData.sec);
 	sprintf(str_stopwatch, "%02d:%02d:%02d.%02d", stopwatch_disData.hour, stopwatch_disData.min, stopwatch_disData.sec, stopwatch_disData.msec/10);
 	LCD_WriteStringXY(0,0,str_timewatch);
