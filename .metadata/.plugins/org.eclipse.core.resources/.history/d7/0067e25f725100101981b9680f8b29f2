@@ -1,0 +1,52 @@
+/*
+ * circled_que.c
+ *
+ *  Created on: Jun 25, 2025
+ *      Author: kccistc
+ */
+#include "circled_que.h"
+
+int isQueFull();
+int isQueEmpty();
+
+#define QUE_IS_EMPTY -1
+
+#define QUE_SIZE 4
+
+typedef struct {
+	int top;
+	int tail;
+	int que[QUE_SIZE];
+}CircleQue_tpye;
+
+int queInit(CircleQue_tpye* que){
+	que->top = 0;
+	que->tail = 0;
+	que->que = {0,0,0,0];
+}
+
+int isQueFull() {
+	return top == (tail + 1) % QUE_SIZE;
+}
+
+int isQueEmpty() {
+	return top == tail;
+}
+
+void enQue(int data) {
+	if(isQueFull()) return;
+	que[tail] = data;
+	tail = (tail + 1) % QUE_SIZE;
+}
+
+int deQue() {
+	if(isQueEmpty()) return QUE_IS_EMPTY;
+	int data = que[top];
+	top = (top + 1) % QUE_SIZE;
+	return data;
+}
+
+int queFront() {
+	if(isQueEmpty()) return QUE_IS_EMPTY;
+	return que[top];
+}

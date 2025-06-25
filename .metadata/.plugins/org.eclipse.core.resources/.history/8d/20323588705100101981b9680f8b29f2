@@ -1,0 +1,13 @@
+/*
+ * circled_que.h
+ *
+ *  Created on: Jun 25, 2025
+ *      Author: kccistc
+ */
+
+#ifndef CIRCLED_QUE_CIRCLED_QUE_H_
+#define CIRCLED_QUE_CIRCLED_QUE_H_
+
+#include <stdint.h>
+
+#endif /* CIRCLED_QUE_CIRCLED_QUE_H_ */

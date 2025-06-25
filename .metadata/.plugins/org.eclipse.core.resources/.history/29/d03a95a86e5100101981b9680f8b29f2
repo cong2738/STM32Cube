@@ -1,0 +1,25 @@
+/*
+ * circled_que.c
+ *
+ *  Created on: Jun 25, 2025
+ *      Author: kccistc
+ */
+#include "circled_que.h"
+
+typedef struct {
+	uint32_t head;
+	uint32_t tail;
+	uint32_t queue[32];
+}Q_Type;
+
+void IsFull(){
+
+}
+
+void enQueue() {
+
+}
+
+void deQueue() {
+
+}

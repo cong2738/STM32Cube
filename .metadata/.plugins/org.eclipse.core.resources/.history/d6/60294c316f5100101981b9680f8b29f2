@@ -1,0 +1,32 @@
+/*
+ * circled_que.c
+ *
+ *  Created on: Jun 25, 2025
+ *      Author: kccistc
+ */
+#include "circled_que.h"
+
+uint8_t IsFull();
+uint8_t IsEmpty();
+
+typedef struct {
+	uint32_t head;
+	uint32_t tail;
+	uint32_t queue[32];
+}Q_Type;
+
+uint8_t IsFull(Q_Type queue) {
+	return queue.head == (queue.tail + 1) % 4;
+}
+
+uint8_t IsEmpty(Q_Type queue) {
+	return queue.head == queue.tail;
+}
+
+void enQueue() {
+
+}
+
+void deQueue() {
+
+}

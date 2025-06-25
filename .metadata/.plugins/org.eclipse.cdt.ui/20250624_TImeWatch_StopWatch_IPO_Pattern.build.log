@@ -1,16 +1,10 @@
-17:37:15 **** Incremental Build of configuration Debug for project 20250624_TImeWatch_StopWatch_IPO_Pattern ****
+18:18:18 **** Incremental Build of configuration Debug for project 20250624_TImeWatch_StopWatch_IPO_Pattern ****
 make -j16 all 
-arm-none-eabi-gcc -o "20250624_TImeWatch_StopWatch_IPO_Pattern.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\harman\STM32Cube\20250624_TImeWatch_StopWatch_IPO_Pattern\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="20250624_TImeWatch_StopWatch_IPO_Pattern.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 20250624_TImeWatch_StopWatch_IPO_Pattern.elf
- 
 arm-none-eabi-size  20250624_TImeWatch_StopWatch_IPO_Pattern.elf 
-arm-none-eabi-objdump -h -S 20250624_TImeWatch_StopWatch_IPO_Pattern.elf  > "20250624_TImeWatch_StopWatch_IPO_Pattern.list"
    text	   data	    bss	    dec	    hex	filename
   17076	    212	   2108	  19396	   4bc4	20250624_TImeWatch_StopWatch_IPO_Pattern.elf
 Finished building: default.size.stdout
  
-Finished building: 20250624_TImeWatch_StopWatch_IPO_Pattern.list
- 
 
-17:37:16 Build Finished. 0 errors, 0 warnings. (took 663ms)
+18:18:18 Build Finished. 0 errors, 0 warnings. (took 259ms)
 

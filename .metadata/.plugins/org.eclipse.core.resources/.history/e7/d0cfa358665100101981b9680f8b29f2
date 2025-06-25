@@ -1,0 +1,95 @@
+/*
+ * Listener.c
+ *
+ *  Created on: Jun 24, 2025
+ *      Author: kccistc
+ */
+
+#include "Listener.h"
+#include <string.h>
+#include "Button.h"
+#include "usart.h"
+
+static void Listener_CheckButton();
+static void Listener_CheckUART();
+
+static char rcvData[1];
+
+void Listener_Init()
+{
+	Button_Init(&hBtnMode, GPIOB, GPIO_PIN_5);
+	Button_Init(&hBtnRunStop, GPIOB, GPIO_PIN_3);
+	Button_Init(&hBtnClear, GPIOA, GPIO_PIN_10);
+	HAL_UART_Receive_IT(&huart2, &rcvData, 1); // uart recv interrupt enable(UART IT initializing)
+}
+
+void Listener_Excute()
+{
+	Listener_CheckButton();
+	Listener_CheckUART();
+}
+
+void Listener_CheckButton() { // check button state
+	static uint32_t chkBtnTime = 0;
+	uint32_t curTick = HAL_GetTick();
+
+	if(curTick - chkBtnTime < 100) return;
+	chkBtnTime = curTick;
+
+	inputData_TypeDef inputData;
+
+	if (Button_GetState(&hBtnMode)== ACT_RELEASED) {
+		inputData.id = controlId_MODE;
+		inputData.data = MODE_ACT;
+		Controller_SetInputData(inputData);
+		return;
+	}
+	if (Button_GetState(&hBtnRunStop)== ACT_PUSHED) {
+		inputData.id = controlId_RUN_STOP;
+		inputData.data = STOPWATCH_ACT;
+		Controller_SetInputData(inputData);
+		return;
+	}
+	if (Button_GetState(&hBtnClear)== ACT_PUSHED) {
+		inputData.id = controlId_BTN_CLEAR;
+		inputData.data = STOPWATCH_ACT;
+		Controller_SetInputData(inputData);
+		return;
+	}
+}
+
+void Listener_CheckUART() { // check UART rxData
+	if(!flag) return
+
+	inputData_TypeDef inputData;
+
+	if (inputStr[0] == 'm') {
+		inputData.id = controlId_MODE;
+		inputData.data = MODE_ACT;
+		Controller_SetInputData(inputData);
+		return;
+	}
+	if (inputStr[0] == 'r') {
+		inputData.id = controlId_RUN_STOP;
+		inputData.data = STOPWATCH_ACT;
+		Controller_SetInputData(inputData);
+		return;
+	}
+	if (inputStr[0] == 's') {
+		inputData.id = controlId_RUN_STOP;
+		inputData.data = STOPWATCH_ACT;
+		Controller_SetInputData(inputData);
+		return;
+	}
+	if (inputStr[0] == 'c') {
+		inputData.id = controlId_BTN_CLEAR;
+		inputData.data = STOPWATCH_ACT;
+		Controller_SetInputData(inputData);
+		return;
+	}
+}
+
+void Listener_UartCallBack() {
+	uartRcFlag = 1;
+	HAL_UART_Receive_IT(&huart2, (uint8_t*) &rcvData, 1);  //interrupt en
+}

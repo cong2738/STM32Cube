@@ -1,0 +1,43 @@
+/*
+ * circled_que.c
+ *
+ *  Created on: Jun 25, 2025
+ *      Author: kccistc
+ */
+#include "circled_que.h"
+
+int isQueFull();
+int isQueEmpty();
+
+#define QUE_IS_EMPTY -1
+
+#define QUE_SIZE 4
+
+int front = 0, back = 0;
+int que[QUE_SIZE] = {0};
+
+int isQueFull() {
+	return front == (rear + 1) % QUE_SIZE;
+}
+
+int isQueEmpty() {
+	return front == rear;
+}
+
+void enQue(int data) {
+	if(isQueFull()) return;
+	que[rear] = data;
+	rear = (rear+1) % QUE_SIZE;
+}
+
+int deQue() {
+	if(isQueEmpty()) return QUE_IS_EMPTY;
+	int data = que[front];
+	front = (front + 1) % QUE_SIZE;
+	return data;
+}
+
+int peekQue() {
+	if(isQueEmpty()) return QUE_IS_EMPTY;
+	return que[front];
+}

@@ -1,0 +1,16 @@
+/*
+ * LCD.c
+ *
+ *  Created on: Jun 25, 2025
+ *      Author: kccistc
+ */
+
+#include "LCD.h"
+
+uint8_r lcdData ;
+
+void LCD_sendData(uint8_t data){
+	LCD_E_High();
+	lcdData = (lcdData & 0x0f) | (data & 0xf0);
+
+}

@@ -1,0 +1,16 @@
+/*
+ * circled_que.c
+ *
+ *  Created on: Jun 25, 2025
+ *      Author: kccistc
+ */
+#include "circled_que.h"
+
+
+void enQueue() {
+
+}
+
+void deQueue() {
+
+}
