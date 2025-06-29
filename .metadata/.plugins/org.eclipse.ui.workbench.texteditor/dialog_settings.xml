@@ -3,6 +3,7 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="duty"/>
 		<item value="dispData"/>
 		<item value="LCD_backLightOn"/>
 		<item value="Cmd"/>
@@ -17,9 +18,9 @@
 		<item value="swopWatch"/>
 		<item value="PIN_"/>
 		<item value="GPIO_WritePin"/>
-		<item value="sw_"/>
 	</list>
 	<list key="replacehistory">
+		<item value="freq"/>
 		<item value="fnd_dispData"/>
 		<item value="tail"/>
 		<item value="top"/>
@@ -34,6 +35,5 @@
 		<item value="hBtnB"/>
 		<item value="hBtnA"/>
 		<item value="WATCH"/>
-		<item value="STOPWATCH"/>
 	</list>
 </section>

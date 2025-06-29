@@ -1,17 +1,10 @@
-18:20:45 **** Incremental Build of configuration Debug for project 20250625_TImeWatch_StopWatch_IPO_Pattern ****
+18:10:18 **** Incremental Build of configuration Debug for project 20250625_TImeWatch_StopWatch_IPO_Pattern ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/ap/src/Presenter.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap" -I"C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/driver/Button" -I"C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/driver/FND" -I"C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/driver/LedBar" -I"C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc" -I"C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/src" -I"C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/data_structure/circled_que" -I"C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/driver/LCD" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/ap/src/Presenter.d" -MT"Core/ap/src/Presenter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/ap/src/Presenter.o"
-arm-none-eabi-gcc -o "20250625_TImeWatch_StopWatch_IPO_Pattern.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\harman\STM32Cube\20250625_TImeWatch_StopWatch_IPO_Pattern\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="20250625_TImeWatch_StopWatch_IPO_Pattern.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 20250625_TImeWatch_StopWatch_IPO_Pattern.elf
- 
 arm-none-eabi-size  20250625_TImeWatch_StopWatch_IPO_Pattern.elf 
-arm-none-eabi-objdump -h -S 20250625_TImeWatch_StopWatch_IPO_Pattern.elf  > "20250625_TImeWatch_StopWatch_IPO_Pattern.list"
    text	   data	    bss	    dec	    hex	filename
-  23332	    212	   2244	  25788	   64bc	20250625_TImeWatch_StopWatch_IPO_Pattern.elf
+  23292	    220	   2244	  25756	   649c	20250625_TImeWatch_StopWatch_IPO_Pattern.elf
 Finished building: default.size.stdout
  
-Finished building: 20250625_TImeWatch_StopWatch_IPO_Pattern.list
- 
 
-18:20:46 Build Finished. 0 errors, 0 warnings. (took 855ms)
+18:10:18 Build Finished. 0 errors, 0 warnings. (took 300ms)
 

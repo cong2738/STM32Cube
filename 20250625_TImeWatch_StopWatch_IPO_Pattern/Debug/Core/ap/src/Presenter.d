@@ -34,13 +34,7 @@ Core/ap/src/Presenter.o: ../Core/ap/src/Presenter.c \
  C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/Watch_Model.h \
  ../Core/Inc/i2c.h ../Core/Inc/main.h \
  C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/driver/LCD/LCD.h \
- ../Core/Inc/usart.h \
- C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/stopWatch.h \
- C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/Controller.h \
- C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/timeWatch.h \
- C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/Presenter.h \
- C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/stopWatch.h \
- C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/timeWatch.h
+ ../Core/Inc/usart.h
 C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/Presenter.h:
 C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/driver/FND/FND.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -78,9 +72,3 @@ C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/Watch_M
 ../Core/Inc/main.h:
 C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/driver/LCD/LCD.h:
 ../Core/Inc/usart.h:
-C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/stopWatch.h:
-C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/Controller.h:
-C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/timeWatch.h:
-C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/Presenter.h:
-C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/stopWatch.h:
-C:/harman/STM32Cube/20250625_TImeWatch_StopWatch_IPO_Pattern/Core/ap/Inc/timeWatch.h:

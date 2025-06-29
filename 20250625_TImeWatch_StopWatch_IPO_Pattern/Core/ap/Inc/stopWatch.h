@@ -12,7 +12,10 @@
 #include "Controller.h"
 #include "Presenter.h"
 
+typedef enum{STOP, RUN, CLEAR}stopWatch_s;
+
 Watch_t get_stopwatch();
+stopWatch_s get_stopwatchState();
 void StopWatch_IncstopCallBack();
 void StopWatch_Incstop();
 void StopWatch_Excute();

@@ -1,0 +1,18 @@
+/*
+ * Controller.h
+ *
+ *  Created on: Jun 24, 2025
+ *      Author: kccistc
+ */
+
+#ifndef AP_CONTROLLER_H_
+#define AP_CONTROLLER_H_
+
+#include "ModeCtrlModel.h"
+
+void Controller_setEvent(uint32_t inputData);
+void Controller_Excute();
+char* ctrl_getLcdData();
+uint8_t ctrl_getFndData();
+
+#endif /* AP_CONTROLLER_H_ */

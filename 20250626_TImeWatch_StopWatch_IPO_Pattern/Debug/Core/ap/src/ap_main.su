@@ -1,0 +1,4 @@
+../Core/ap/src/ap_main.c:10:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/ap/src/ap_main.c:19:6:HAL_UART_RxCpltCallback	16	static
+../Core/ap/src/ap_main.c:27:5:ap_main	8	static
+../Core/ap/src/ap_main.c:37:6:ap_init	8	static

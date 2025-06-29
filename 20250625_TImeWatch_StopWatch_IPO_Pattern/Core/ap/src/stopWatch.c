@@ -7,14 +7,16 @@
 
 #include "stopWatch.h"
 
-typedef enum{STOP, RUN, CLEAR}stopWatch_s;
-
 extern inputData_TypeDef controlData;
 static stopWatch_s stopWatchstate = STOP;
 static Watch_t stopWatch = {STOP_WATCH, 0, 0, 0, 0};
 
 Watch_t get_stopwatch(){
 	return stopWatch;
+}
+
+stopWatch_s get_stopwatchState() {
+	return stopWatchstate;
 }
 
 void StopWatch_IncstopCallBack(){
@@ -51,21 +53,6 @@ void StopWatch_Incstop()
 	stopWatch.hour = 0;
 }
 
-void StopWatch_Excute()
-{
-	switch (stopWatchstate) {
-	case STOP:
-		StopWatch_Stop();
-		break;
-	case RUN:
-		StopWatch_Run();
-		break;
-	case CLEAR:
-		StopWatch_Clear();
-		break;
-	}
-	Presenter_OutData(stopWatch);
-}
 
 void StopWatch_Stop(){
 	if (controlData.id == controlId_RUN_STOP || controlData.id == controlId_RUN) {

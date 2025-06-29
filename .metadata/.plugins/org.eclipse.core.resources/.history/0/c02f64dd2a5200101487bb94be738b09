@@ -1,0 +1,104 @@
+/*
+ * Controller.c
+ *
+ *  Created on: Jun 24, 2025
+ *      Author: kccistc
+ */
+#include <string.h>
+#include "Controller.h"
+#include "timeWatch.h"
+#include "stopWatch.h"
+
+static watchModeState_t modeState = TIME_WATCH;
+inputData_TypeDef controlData = {0};
+static Watch_t stopWatchData = {STOP_WATCH, 0, 0, 0, 0};
+static Watch_t timeWatchData = {TIME_WATCH, 0, 0, 0, 0};
+
+void controller_MessageManager();
+
+void controller_MessageManager() {
+	Watch_t tempTimeWatch = get_stopwatch();
+	Watch_t tempStopWatch = get_timewatch();
+	memcpy(&timeWatchData, &tempTimeWatch, sizeof(Watch_t));
+	memcpy(&stopWatchData, &tempStopWatch, sizeof(Watch_t));
+}
+
+///// public /////
+void Controller_Excute()
+{
+	Controller_Mode();
+	controller_MessageManager();
+}
+
+void Controller_SetInputData(inputData_TypeDef inputData)
+{
+	if (inputData.id == controlId_MODE) {
+		controlData.id = controlId_MODE;
+		controlData.data = controlData_MODE_ACT;
+	}
+	else if (inputData.id == controlId_RUN_STOP) {
+		controlData.id = controlId_RUN_STOP;
+		controlData.data = controlData_STOPWATCH_ACT;
+	}
+	else if (inputData.id == controlId_RUN) {
+		controlData.id = controlId_RUN;
+		controlData.data = controlData_STOPWATCH_ACT;
+	}
+	else if (inputData.id == controlId_STOP) {
+		controlData.id = controlId_STOP;
+		controlData.data = controlData_STOPWATCH_ACT;
+	}
+	else if (inputData.id == controlId_BTN_CLEAR) {
+		controlData.id = controlId_BTN_CLEAR;
+		controlData.data = controlData_STOPWATCH_ACT;
+	}
+}
+
+void Controller_Mode()
+{
+	switch (modeState) {
+	case TIME_WATCH:
+		if (controlData.id == controlId_MODE) {
+			controlData.id = controlId_NO_CONTROL;
+			modeState = STOP_WATCH;
+		}
+		break;
+	case STOP_WATCH:
+		if (controlData.id == controlId_MODE) {
+			controlData.id = controlId_NO_CONTROL;
+			modeState = TIME_WATCH;
+		} else if (controlData.id == controlId_MODE) {
+			controlData.id = controlId_NO_CONTROL;
+			modeState = STOP_WATCH;
+		} else if (controlData.id == controlId_MODE) {
+			controlData.id = controlId_NO_CONTROL;
+			modeState = STOP_WATCH;
+		}
+		StopWatch_Excute();
+		break;
+	}
+}
+
+
+void Controller_StopWatchCtrl()
+{
+	switch (stopWatchstate) {
+	case STOP:
+		StopWatch_Stop();
+		break;
+	case RUN:
+		StopWatch_Run();
+		break;
+	case CLEAR:
+		StopWatch_Clear();
+		break;
+	}
+}
+
+Watch_t Controller_getTimeWatch() {
+	return timeWatchData;
+}
+
+Watch_t Controller_getStopWatch() {
+	return stopWatchData;
+}

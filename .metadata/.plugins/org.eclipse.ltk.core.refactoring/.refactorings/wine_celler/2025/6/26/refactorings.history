@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;wine_celler/20250626_TImeWatch_StopWatch.ioc&apos; to &apos;wine_celler.ioc&apos;" description="Rename resource &apos;20250626_TImeWatch_StopWatch.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="20250626_TImeWatch_StopWatch.ioc" name="wine_celler.ioc" stamp="1750986637967" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;wine_celler/Core/driver/motorDriver&apos; to &apos;motor&apos;" description="Rename resource &apos;motorDriver&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/driver/motorDriver" name="motor" stamp="1751000612787" updateReferences="true"/>
+</session>

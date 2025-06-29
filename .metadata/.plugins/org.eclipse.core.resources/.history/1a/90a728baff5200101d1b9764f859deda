@@ -1,0 +1,35 @@
+/*
+ * Presenter.c
+ *
+ *  Created on: Jun 24, 2025
+ *      Author: kccistc
+ */
+#include "Presenter.h"
+#include <string.h>
+#include <stdio.h>
+#include "usart.h"
+#include "Controller.h"
+
+int motor = 0;
+int light = 0;
+
+void Presenter_DisTimeWatchFnd();
+
+void Presenter_DisTimeWatchFnd(){
+	FND_WriteData(get_FndData());
+	FND_WriteDp(0b1111, FND_DP_OFF);
+}
+
+///// public /////
+void Presenter_Excute()
+{
+	Presenter_OutData();
+	Presenter_DisTimeWatchFnd();
+	LCD_writeStringXY(0,0,get_LcdData());
+	motor = get_motorState();
+	light = get_lightState();
+}
+
+void Presenter_Init() {
+	LCD_Init(&hi2c1);
+}

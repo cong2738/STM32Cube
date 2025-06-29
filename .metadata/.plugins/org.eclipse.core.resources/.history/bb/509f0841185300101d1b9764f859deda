@@ -1,0 +1,15 @@
+/*
+ * light.h
+ *
+ *  Created on: Jun 27, 2025
+ *      Author: kccistc
+ */
+
+#ifndef DRIVER_LIGHT_LIGHT_H_
+#define DRIVER_LIGHT_LIGHT_H_
+
+#include "stm32f4xx_hal.h"
+
+void Led_On(uint8_t on)
+
+#endif /* DRIVER_LIGHT_LIGHT_H_ */

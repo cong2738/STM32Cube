@@ -1,7 +1,7 @@
-../Core/ap/src/stopWatch.c:16:9:get_stopwatch	16	static
-../Core/ap/src/stopWatch.c:20:6:StopWatch_IncstopCallBack	8	static
-../Core/ap/src/stopWatch.c:26:6:StopWatch_Incstop	4	static
-../Core/ap/src/stopWatch.c:54:6:StopWatch_Excute	8	static
-../Core/ap/src/stopWatch.c:70:6:StopWatch_Stop	4	static
-../Core/ap/src/stopWatch.c:79:6:StopWatch_Run	4	static
-../Core/ap/src/stopWatch.c:85:6:StopWatch_Clear	4	static
+../Core/ap/src/stopWatch.c:14:9:get_stopwatch	16	static
+../Core/ap/src/stopWatch.c:18:13:get_stopwatchState	4	static
+../Core/ap/src/stopWatch.c:22:6:StopWatch_IncstopCallBack	8	static
+../Core/ap/src/stopWatch.c:28:6:StopWatch_Incstop	4	static
+../Core/ap/src/stopWatch.c:57:6:StopWatch_Stop	4	static
+../Core/ap/src/stopWatch.c:66:6:StopWatch_Run	4	static
+../Core/ap/src/stopWatch.c:72:6:StopWatch_Clear	4	static

@@ -41,8 +41,3 @@ void TimeWatch_IncTimeCallBack() //interrupt에 들어가는 함수(interrupt로
 	}
 	timeWatch.hour = 0;
 }
-
-void TimeWatch_Excute()
-{
-	Presenter_OutData(timeWatch);
-}

@@ -1,0 +1,6 @@
+../data_structure/circled_que/circled_que.c:11:6:queInit	16	static
+../data_structure/circled_que/circled_que.c:16:5:isQueFull	16	static
+../data_structure/circled_que/circled_que.c:20:5:isQueEmpty	16	static
+../data_structure/circled_que/circled_que.c:24:5:enQue	16	static
+../data_structure/circled_que/circled_que.c:31:7:deQue	24	static
+../data_structure/circled_que/circled_que.c:38:7:queFront	16	static

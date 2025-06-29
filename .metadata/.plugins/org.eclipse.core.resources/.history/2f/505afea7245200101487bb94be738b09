@@ -1,0 +1,7 @@
+../Core/ap/src/stopWatch.c:16:9:get_stopwatch	1
+../Core/ap/src/stopWatch.c:20:6:StopWatch_IncstopCallBack	2
+../Core/ap/src/stopWatch.c:26:6:StopWatch_Incstop	5
+../Core/ap/src/stopWatch.c:54:6:StopWatch_Excute	5
+../Core/ap/src/stopWatch.c:70:6:StopWatch_Stop	4
+../Core/ap/src/stopWatch.c:79:6:StopWatch_Run	3
+../Core/ap/src/stopWatch.c:85:6:StopWatch_Clear	1

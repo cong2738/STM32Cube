@@ -1,0 +1,28 @@
+/*
+ * light.c
+ *
+ *  Created on: Jun 27, 2025
+ *      Author: kccistc
+ */
+#include "LedBar.h"
+
+typedef struct {
+	GPIO_TypeDef *GPIOx;
+	uint32_t pinNum;
+}Led_TypeDef;
+
+Led_TypeDef led = {GPIOA, GPIO_PIN_0};
+
+void Light_init(Led_TypeDef* LEDx) {
+	led = LEDx;
+	HAL_GPIO_WritePin(led.GPIOx, led.pinNum, RESET)
+}
+
+void Led_On(uint8_t on)
+{
+	if(!on) {
+		HAL_GPIO_WritePin(led.GPIOx, led.pinNum, RESET);
+		return;
+	}
+	HAL_GPIO_WritePin(led.GPIOx, led.pinNum, SET);
+}

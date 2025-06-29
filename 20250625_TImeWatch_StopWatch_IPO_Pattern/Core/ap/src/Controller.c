@@ -4,15 +4,33 @@
  *  Created on: Jun 24, 2025
  *      Author: kccistc
  */
-
+#include <string.h>
 #include "Controller.h"
+#include "timeWatch.h"
+#include "stopWatch.h"
 
 static watchModeState_t modeState = TIME_WATCH;
 inputData_TypeDef controlData = {0};
+static Watch_t stopWatchData = {STOP_WATCH, 0, 0, 0, 0};
+static Watch_t timeWatchData = {TIME_WATCH, 0, 0, 0, 0};
 
+void controller_MessageManager();
+void Controller_StopWatchCtrl();
+Watch_t Controller_getTimeWatch();
+Watch_t Controller_getStopWatch();
+
+void controller_MessageManager() {
+	Watch_t tempTimeWatch = get_stopwatch();
+	Watch_t tempStopWatch = get_timewatch();
+	memcpy(&timeWatchData, &tempTimeWatch, sizeof(Watch_t));
+	memcpy(&stopWatchData, &tempStopWatch, sizeof(Watch_t));
+}
+
+///// public /////
 void Controller_Excute()
 {
 	Controller_Mode();
+	controller_MessageManager();
 }
 
 void Controller_SetInputData(inputData_TypeDef inputData)
@@ -47,9 +65,9 @@ void Controller_Mode()
 			controlData.id = controlId_NO_CONTROL;
 			modeState = STOP_WATCH;
 		}
-		TimeWatch_Excute();
 		break;
 	case STOP_WATCH:
+		Controller_StopWatchCtrl();
 		if (controlData.id == controlId_MODE) {
 			controlData.id = controlId_NO_CONTROL;
 			modeState = TIME_WATCH;
@@ -60,7 +78,30 @@ void Controller_Mode()
 			controlData.id = controlId_NO_CONTROL;
 			modeState = STOP_WATCH;
 		}
-		StopWatch_Excute();
 		break;
 	}
+}
+
+
+void Controller_StopWatchCtrl()
+{
+	switch (get_stopwatchState()) {
+	case STOP:
+		StopWatch_Stop();
+		break;
+	case RUN:
+		StopWatch_Run();
+		break;
+	case CLEAR:
+		StopWatch_Clear();
+		break;
+	}
+}
+
+Watch_t Controller_getTimeWatch() {
+	return timeWatchData;
+}
+
+Watch_t Controller_getStopWatch() {
+	return stopWatchData;
 }

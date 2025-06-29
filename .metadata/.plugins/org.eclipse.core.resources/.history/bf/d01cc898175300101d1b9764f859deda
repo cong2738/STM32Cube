@@ -1,0 +1,14 @@
+/*
+ * light.c
+ *
+ *  Created on: Jun 27, 2025
+ *      Author: kccistc
+ */
+#include "LedBar.h"
+
+typedef struct {
+	GPIO_TypeDef *GPIOx;
+	uint32_t pinNum;
+}Led_TypeDef;
+
+Led_TypeDef led {GPIOA, GPIO_PIN_0};

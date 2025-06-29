@@ -1,0 +1,9 @@
+/*
+ * light.c
+ *
+ *  Created on: Jun 27, 2025
+ *      Author: kccistc
+ */
+#include "LedBar.h"
+
+LedBar_TypeDef

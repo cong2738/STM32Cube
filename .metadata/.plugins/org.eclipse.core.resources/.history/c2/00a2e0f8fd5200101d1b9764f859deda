@@ -1,0 +1,42 @@
+/*
+ * Presenter.c
+ *
+ *  Created on: Jun 24, 2025
+ *      Author: kccistc
+ */
+#include "Presenter.h"
+#include <string.h>
+#include <stdio.h>
+#include "usart.h"
+#include "Controller.h"
+
+static char LCD_out[18] = "test";
+static uint32_t FND_out = 1234;
+
+void Presenter_OutData();
+void Presenter_DisTimeWatchFnd();
+
+void Presenter_OutData()
+{
+
+}
+
+void Presenter_DisTimeWatchFnd(){
+	uint32_t temp = ctrl_getFndData();
+	FND_WriteData(temp);
+	FND_WriteDp(0b1111, FND_DP_OFF);
+}
+
+///// public /////
+void Presenter_Excute()
+{
+	char* temp = ctrl_getLcdData();
+	strcpy(LCD_out,temp);
+	Presenter_OutData();
+	Presenter_DisTimeWatchFnd();
+	LCD_writeStringXY(0,0,LCD_out);
+}
+
+void Presenter_Init() {
+	LCD_Init(&hi2c1);
+}

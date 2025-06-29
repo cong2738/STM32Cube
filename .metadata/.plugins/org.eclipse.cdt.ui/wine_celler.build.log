@@ -1,0 +1,10 @@
+18:18:41 **** Incremental Build of configuration Debug for project wine_celler ****
+make -j16 all 
+arm-none-eabi-size  wine_celler.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27752	    304	   2448	  30504	   7728	wine_celler.elf
+Finished building: default.size.stdout
+ 
+
+18:18:42 Build Finished. 0 errors, 0 warnings. (took 480ms)
+

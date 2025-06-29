@@ -1,0 +1,73 @@
+/*
+ * Listener.c
+ *
+ *  Created on: Jun 24, 2025
+ *      Author: kccistc
+ */
+
+#include "Listener.h"
+#include <string.h>
+#include "Button.h"
+#include "usart.h"
+#include "DHT11.h"
+
+Button_Handler_t hBtnMode;
+Button_Handler_t hBtnRunStop;
+Button_Handler_t hBtnClear;
+
+static uint8_t rxData = 0;
+static Que_TypeDef uartRxQue = {0};
+
+static void Listener_CheckButton();
+static void Listener_CheckUART();
+
+DHT11_Dev listener_DHT11Data;
+
+void Listener_Init()
+{
+	Button_Init(&hBtnMode, GPIOB, GPIO_PIN_5);
+	Button_Init(&hBtnRunStop, GPIOB, GPIO_PIN_3);
+	Button_Init(&hBtnClear, GPIOA, GPIO_PIN_10);
+	HAL_UART_Receive_IT(&huart2, &rxData, 1); // uart recv interrupt enable(UART IT initializing)
+	Que_Init(&uartRxQue);
+	DHT11_init(&listener_DHT11Data, GPIOA, GPIO_PIN_10, htim)
+}
+
+void Listener_Excute()
+{
+	Listener_CheckButton();
+	Listener_CheckUART();
+}
+
+void Listener_CheckButton() { // check button state
+	static uint32_t chkBtnTime = 0;
+	uint32_t curTick = HAL_GetTick();
+
+	if(curTick - chkBtnTime < 10) return;
+	chkBtnTime = curTick;
+
+	if (Button_GetState(&hBtnMode)== ACT_RELEASED) {
+		Controller_setEvent(controlId_BTN0);
+		return;
+	}
+	if (Button_GetState(&hBtnRunStop)== ACT_PUSHED) {
+		Controller_setEvent(controlId_BTN1);
+		return;
+	}
+	if (Button_GetState(&hBtnClear)== ACT_PUSHED) {
+		Controller_setEvent(controlId_BTN2);
+		return;
+	}
+}
+
+void Listener_CheckUART() { // check UART rxData
+	if(isQueEmpty(&uartRxQue)) return; // check UART rxFlag
+	int uartRxData = (int) deQue(&uartRxQue);
+
+	Controller_setEvent(controlId_UART_RX);
+}
+
+void Listener_UartCallBack() {
+	HAL_UART_Receive_IT(&huart2, &rxData, 1);  //interrupt en
+	enQue(&uartRxQue, (void*) rxData);
+}

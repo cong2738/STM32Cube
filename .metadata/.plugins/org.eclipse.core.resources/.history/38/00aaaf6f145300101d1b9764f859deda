@@ -1,0 +1,32 @@
+/*
+ * motor.c
+ *
+ *  Created on: Jun 27, 2025
+ *      Author: kccistc
+ */
+#include "motor.h"
+
+static TIM_HandleTypeDef *hMotorTim;
+static uint32_t MotorTimChannel;
+
+void Motor_Init(TIM_HandleTypeDef* htim, uint32_t channel)
+{
+	hMotorTim = htim;
+	MotorTimChannel = channel;
+}
+
+void Motor_SetFreq(uint32_t duty)
+{
+	if(duty == 0) return;
+	__HAL_TIM_SET_COMPARE(hMotorTim, MotorTimChannel,1000000/duty - 1);
+}
+
+void Motor_Start()
+{
+	HAL_TIM_PWM_Start(hMotorTim, MotorTimChannel);
+}
+
+void Motor_Stop()
+{
+	HAL_TIM_PWM_Stop(hMotorTim, MotorTimChannel);
+}
