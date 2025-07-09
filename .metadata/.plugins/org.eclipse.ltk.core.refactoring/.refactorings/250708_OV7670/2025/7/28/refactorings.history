@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;250708_OV7670/250708_ILI9341_TFT_LCD.ioc&apos; to &apos;250708_OV7670.ioc&apos;" description="Rename resource &apos;250708_ILI9341_TFT_LCD.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="250708_ILI9341_TFT_LCD.ioc" name="250708_OV7670.ioc" stamp="1752025776149" updateReferences="true"/>
+</session>

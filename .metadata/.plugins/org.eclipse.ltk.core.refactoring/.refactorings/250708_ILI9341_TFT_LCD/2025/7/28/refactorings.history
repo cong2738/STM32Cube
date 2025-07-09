@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;250708_ILI9341_TFT_LCD/Core/Lib/img/star.c&apos; to &apos;star.h&apos;" description="Rename resource &apos;star.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Lib/img/star.c" name="star.h" stamp="1751951818433" updateReferences="true"/>
+</session>

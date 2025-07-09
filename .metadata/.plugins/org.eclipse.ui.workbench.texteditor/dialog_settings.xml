@@ -3,6 +3,9 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="ILI9341_SPI_PORT"/>
+		<item value="SLI"/>
+		<item value="HAL_GPIO_TogglePin"/>
 		<item value="duty"/>
 		<item value="dispData"/>
 		<item value="LCD_backLightOn"/>
@@ -15,9 +18,6 @@
 		<item value="inputData"/>
 		<item value="dotData"/>
 		<item value="hBtnMode"/>
-		<item value="swopWatch"/>
-		<item value="PIN_"/>
-		<item value="GPIO_WritePin"/>
 	</list>
 	<list key="replacehistory">
 		<item value="freq"/>
