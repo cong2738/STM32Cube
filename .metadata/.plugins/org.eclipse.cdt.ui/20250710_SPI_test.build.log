@@ -1,0 +1,29 @@
+15:03:00 **** Incremental Build of configuration Debug for project 20250710_SPI_test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H743xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:127:9: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  127 |         printf("hello world\n");
+      |         ^~~~~~
+../Core/Src/main.c:29:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   28 | #include "fmc.h"
+  +++ |+#include <stdio.h>
+   29 | 
+../Core/Src/main.c:127:9: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  127 |         printf("hello world\n");
+      |         ^~~~~~
+../Core/Src/main.c:127:9: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "20250710_SPI_test.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\harman\STM32Cube\20250710_SPI_test\STM32H743XIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="20250710_SPI_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 20250710_SPI_test.elf
+ 
+arm-none-eabi-size  20250710_SPI_test.elf 
+arm-none-eabi-objdump -h -S 20250710_SPI_test.elf  > "20250710_SPI_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  38836	    108	   2652	  41596	   a27c	20250710_SPI_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: 20250710_SPI_test.list
+ 
+
+15:03:01 Build Finished. 0 errors, 2 warnings. (took 1s.247ms)
+

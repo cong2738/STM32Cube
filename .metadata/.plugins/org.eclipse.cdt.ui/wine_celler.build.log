@@ -1,4 +1,4 @@
-12:26:57 **** Incremental Build of configuration Debug for project wine_celler ****
+15:03:05 **** Incremental Build of configuration Debug for project wine_celler ****
 make -j16 all 
 arm-none-eabi-size  wine_celler.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  wine_celler.elf
 Finished building: default.size.stdout
  
 
-12:26:57 Build Finished. 0 errors, 0 warnings. (took 472ms)
+15:03:05 Build Finished. 0 errors, 0 warnings. (took 369ms)
 
